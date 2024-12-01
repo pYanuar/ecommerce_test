@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 class CartPage extends StatefulWidget {
   final CartPageViewModel cartPageViewModel;
 
-  const CartPage({Key? key, required this.cartPageViewModel}) : super(key: key);
+  const CartPage({super.key, required this.cartPageViewModel});
 
   @override
   _CartPageState createState() => _CartPageState();
@@ -39,35 +39,36 @@ class _CartPageState extends State<CartPage> {
               children: [
                 Text('Add a new Cart',
                     style: Theme.of(context).textTheme.headlineSmall),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 TextField(
                   controller: userIdController,
-                  decoration: InputDecoration(labelText: 'User ID'),
+                  decoration: const InputDecoration(labelText: 'User ID'),
                   keyboardType: TextInputType.number,
                 ),
                 TextField(
                   controller: dateController,
-                  decoration: InputDecoration(labelText: 'Date (YYYY-MM-DD)'),
+                  decoration:
+                      const InputDecoration(labelText: 'Date (YYYY-MM-DD)'),
                 ),
                 TextField(
                   controller: productIdController,
-                  decoration: InputDecoration(labelText: 'Product ID'),
+                  decoration: const InputDecoration(labelText: 'Product ID'),
                   keyboardType: TextInputType.number,
                 ),
                 TextField(
                   controller: quantityController,
-                  decoration: InputDecoration(labelText: 'Quantity'),
+                  decoration: const InputDecoration(labelText: 'Quantity'),
                   keyboardType: TextInputType.number,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {
                     if (userIdController.text.isEmpty ||
                         dateController.text.isEmpty ||
                         productIdController.text.isEmpty ||
                         quantityController.text.isEmpty) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Please fill in all fields')));
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text('Please fill in all fields')));
                       return;
                     }
 
@@ -79,7 +80,7 @@ class _CartPageState extends State<CartPage> {
                     if (userId == null ||
                         productId == null ||
                         quantity == null) {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           content: Text('Please enter valid numbers')));
                       return;
                     }
@@ -99,10 +100,10 @@ class _CartPageState extends State<CartPage> {
                     productIdController.clear();
                     quantityController.clear();
 
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Cart added successfully')));
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text('Cart added successfully')));
                   },
-                  child: Text('Add Cart'),
+                  child: const Text('Add Cart'),
                 ),
               ],
             ),
@@ -113,13 +114,13 @@ class _CartPageState extends State<CartPage> {
               builder: (context, viewModel, child) {
                 final cartList = viewModel.cartList;
                 return cartList.isEmpty
-                    ? Center(child: CircularProgressIndicator())
+                    ? const Center(child: CircularProgressIndicator())
                     : ListView.builder(
                         itemCount: cartList.length,
                         itemBuilder: (context, index) {
                           final cart = cartList[index];
                           return Card(
-                            margin: EdgeInsets.all(10),
+                            margin: const EdgeInsets.all(10),
                             child: Padding(
                               padding: const EdgeInsets.all(10.0),
                               child: Column(
@@ -127,14 +128,14 @@ class _CartPageState extends State<CartPage> {
                                 children: [
                                   Text(
                                     'Cart ID: ${cart.id}',
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold),
                                   ),
                                   Text('User ID: ${cart.userId}'),
                                   Text('Date: ${cart.date}'),
-                                  SizedBox(height: 10),
-                                  Text('Products:'),
+                                  const SizedBox(height: 10),
+                                  const Text('Products:'),
                                   for (var product in cart.products)
                                     Padding(
                                       padding: const EdgeInsets.symmetric(
@@ -145,13 +146,13 @@ class _CartPageState extends State<CartPage> {
                                   Align(
                                     alignment: Alignment.centerRight,
                                     child: IconButton(
-                                      icon:
-                                          Icon(Icons.delete, color: Colors.red),
+                                      icon: const Icon(Icons.delete,
+                                          color: Colors.red),
                                       onPressed: () async {
                                         await widget.cartPageViewModel
                                             .deleteCart(cart.id);
                                         ScaffoldMessenger.of(context)
-                                            .showSnackBar(SnackBar(
+                                            .showSnackBar(const SnackBar(
                                                 content: Text('Cart deleted')));
                                       },
                                     ),

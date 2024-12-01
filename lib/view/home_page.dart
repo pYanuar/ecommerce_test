@@ -1,11 +1,11 @@
 import 'package:ecommerce_test/view_model/product_viewmodel.dart';
 import 'package:flutter/material.dart';
-import '../models/product_model.dart';
+import '../model/product_model.dart';
 
 class HomePage extends StatefulWidget {
   final ProductViewModel productViewModel;
 
-  HomePage({Key? key, required this.productViewModel}) : super(key: key);
+  const HomePage({super.key, required this.productViewModel});
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -27,14 +27,14 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('List Product'),
+        title: const Text('List Product'),
         backgroundColor: Colors.blueAccent,
       ),
       body: FutureBuilder<void>(
         future: _productsFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
 
           if (snapshot.hasError) {
@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                       bottomPadding), // Menambahkan padding bawah untuk memberi ruang bagi BottomNavigationBar
               child: GridView.builder(
                 padding: const EdgeInsets.all(8.0),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, // Menampilkan 2 item per baris
                   crossAxisSpacing: 8.0, // Jarak antar item
                   mainAxisSpacing: 8.0, // Jarak antar baris
@@ -77,12 +77,13 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Text(
                                 product.title,
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),
                               Text('\$${product.price}',
-                                  style: TextStyle(color: Colors.green)),
+                                  style: const TextStyle(color: Colors.green)),
                             ],
                           ),
                         ),

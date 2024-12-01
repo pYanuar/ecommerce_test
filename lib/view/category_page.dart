@@ -2,13 +2,12 @@
 
 import 'package:ecommerce_test/view_model/category_pageviewmodel.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_test/models/category_model.dart';
+import 'package:ecommerce_test/model/category_model.dart';
 
 class CategoryPage extends StatefulWidget {
   final CategoryPageViewModel categoryPageViewModel;
 
-  const CategoryPage({Key? key, required this.categoryPageViewModel})
-      : super(key: key);
+  const CategoryPage({super.key, required this.categoryPageViewModel});
 
   @override
   _CategoryPageState createState() => _CategoryPageState();
@@ -35,7 +34,7 @@ class _CategoryPageState extends State<CategoryPage> {
         future: _categoriesFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
 
           if (snapshot.hasError) {
@@ -43,7 +42,7 @@ class _CategoryPageState extends State<CategoryPage> {
           }
 
           if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(child: Text('No categories found'));
+            return const Center(child: Text('No categories found'));
           }
 
           // Menampilkan daftar kategori dalam ListView
@@ -62,7 +61,7 @@ class _CategoryPageState extends State<CategoryPage> {
                 child: ListTile(
                   title: Text(
                     category.name,
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                   onTap: () {
                     // Menambahkan aksi saat kategori dipilih

@@ -1,7 +1,7 @@
 import 'package:ecommerce_test/view/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:ecommerce_test/models/cart_page_model.dart';
+import 'package:ecommerce_test/model/cart_page_model.dart';
 import 'package:ecommerce_test/view_model/cart_pageviewmodel.dart';
 
 void main() {
@@ -9,7 +9,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {

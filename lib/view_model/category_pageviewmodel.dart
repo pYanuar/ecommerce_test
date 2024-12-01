@@ -1,7 +1,7 @@
 // view_models/category_page_view_model.dart
 
 import 'dart:convert';
-import 'package:ecommerce_test/models/category_model.dart';
+import 'package:ecommerce_test/model/category_model.dart';
 import 'package:http/http.dart' as http;
 
 class CategoryPageViewModel {

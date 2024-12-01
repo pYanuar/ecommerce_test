@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Colors.blue,
           onPressed: () {
             Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) => CheckoutScreen()));
+                builder: (BuildContext context) => const CheckoutScreen()));
           },
           child: const Icon(
             Icons.shopping_basket_rounded,

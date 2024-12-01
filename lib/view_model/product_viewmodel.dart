@@ -1,7 +1,7 @@
 // view_models/product_view_model.dart
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../models/product_model.dart';
+import '../model/product_model.dart';
 
 class ProductViewModel {
   List<ProductModel> products = [];

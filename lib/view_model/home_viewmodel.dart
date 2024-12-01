@@ -1,5 +1,5 @@
 // view_models/home_view_model.dart
-import '../models/home_model.dart';
+import '../model/home_model.dart';
 
 class HomeViewModel {
   final HomeModel homeModel;
