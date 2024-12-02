@@ -1,4 +1,5 @@
 import 'package:ecommerce_test/view/home_screen.dart';
+import 'package:ecommerce_test/view/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ecommerce_test/model/cart_page_model.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false, // Disable debug banner
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: const HomeScreen(), // Navigate to HomeScreen
+        home: LoginPage(), // Navigate to HomeScreen
       ),
     );
   }
